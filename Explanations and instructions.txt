@@ -1,0 +1,54 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Seyedhossein Noorbakhsh, 40036604
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Libraries that were used for this assignment:
+	• geopandas
+	• matplotlib
+	• math
+	• time
+Data structures created for the purpose of this assignment: (please see cell.py and node.py)
+	• cell 
+	• node
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To run the program, please enter your desired values for grid size and start and end note as integers, when prompted, and see the results.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Summary on how the program works:
+
+1) The file crime_dt.dbf was read and all the coordinates were extracted.
+2) Grid setup has beeen done based on the selected value of grid_size entered by the user.
+3) The number of crimes in each grid cell was extracted.
+4) Total and average number of crimes was calculated.
+5) Based on the selected threshold, index of threshold and the amount was calculated and printed.
+6) Graph has been set up based on 2 colors and normalized the cells based on threshold.
+7) All the nodes were extracted. I used my node data structure that I wrote for this assignment (node.py).
+8) All the cells were extracted (please see cell.py).
+9) I traveresed through all the cells and for high_risk nodes I increment a value called node_hit for each node in those cells.
+   These values were used for calculation of cost of going from each node to the other (cost of different edges). I created an excel file
+   including an example of a 5*5 grid to help me understand how to number nodes and cells and how to calculate the cost of each edged based
+   on node_hits and the criteria I used. Please see the attached excel file and I will explain more on this during the demo.
+10) I defined a function to check if two nodes are diagonal to each other (and inside a common cell).
+11) I defined a function to find two cells that are beside each other and have the same nodes on the border edge.
+12) The cost_calculator function calculates the cost of going from one node to other based on the given criteria. If moving from one node
+    to another is impossible it will return 1000 which is a very large number and A* algortithm will avoid that node when calcualting the minimum
+    cost for different nodes.
+13) The all_possible_children_of_a_node will return all possible index of neighbour nodes around a node. Then the next function "ist_of_children_of_a_node"
+    will give the correct list using the previous returned list and it removes the invalid indices for when for example a node is on a border.
+15) I defined the Heuristic function as a function that returns the scaled distance of any node to the goal.
+16) I set the timer exactly after when user is entering the index of start_node and end_node.
+17) After calculation of the path (if it exists and if the time spent is less than 10 seconds) it will be shown on the graph and the total cost will be 
+    printed on the console output.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+   	
+Comments: My heuristic function does not seem to be monotone as it does not always show the optimal path.
+
+
+
+
